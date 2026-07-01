@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QA Auto Arena</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <nav class="topbar">
+        <div class="brand">
+          <span class="brand-mark">QA</span>
+          <div>
+            <p>QA Auto Arena</p>
+            <span>Практика для собеседований</span>
+          </div>
+        </div>
+        <a class="topbar-link" href="#trainers">Перейти к тренажерам</a>
+      </nav>
+
+      <div class="hero-grid">
+        <section class="hero-copy">
+          <p class="eyebrow">Interview-ready practice</p>
+          <h1>Тренируй UI, API и SQL-навыки так, как будто собеседование уже завтра</h1>
+          <p class="hero-text">
+            Площадка для QA Automation инженеров с задачами на написание автотестов,
+            быстрым само-чеком и примерами сильных решений.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#trainers">Начать практику</a>
+            <a class="button button-secondary" href="#roadmap">Что внутри</a>
+          </div>
+        </section>
+
+        <aside class="hero-panel">
+          <div class="panel-card accent-card">
+            <span class="card-kicker">Фокус подготовки</span>
+            <ul class="panel-list">
+              <li>UI автотесты: локаторы, ожидания, негативные проверки</li>
+              <li>API автотесты: статусы, схемы, авторизация, edge cases</li>
+              <li>Базы данных: SQL-запросы, join'ы, фильтрация и проверки данных</li>
+            </ul>
+          </div>
+          <div class="panel-card stat-card">
+            <span class="stat-value" id="completionRate">0%</span>
+            <span class="stat-label">прогресса по текущим тренажерам</span>
+          </div>
+        </aside>
+      </div>
+    </header>
+
+    <main>
+      <section class="overview" id="roadmap">
+        <div class="section-heading">
+          <p class="eyebrow">Roadmap</p>
+          <h2>Что дает этот сайт для подготовки QA Auto</h2>
+        </div>
+        <div class="feature-grid">
+          <article class="feature-card">
+            <h3>Практика вместо теории</h3>
+            <p>Каждый блок построен вокруг задач, похожих на те, которые часто дают на интервью и тестовых заданиях.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Быстрая самооценка</h3>
+            <p>После ввода решения можно сразу проверить, покрыты ли ключевые критерии хорошего ответа.</p>
+          </article>
+          <article class="feature-card">
+            <h3>Эталонные примеры</h3>
+            <p>Для каждого тренажера есть пример сильного решения, чтобы сравнить подход, структуру и полноту проверки.</p>
+          </article>
+        </div>
+
+        <div class="track-grid">
+          <article class="track-card">
+            <span class="track-count">5 UI</span>
+            <h3>Тренировка browser automation</h3>
+            <p>Логин, фильтрация, checkout, flaky-ожидания и форма с валидацией на уровне `Junior`, `Middle` и `Senior`.</p>
+          </article>
+          <article class="track-card">
+            <span class="track-count">5 API</span>
+            <h3>Практика API design checks</h3>
+            <p>CRUD, авторизация, контрактные проверки, пагинация и идемпотентность с акцентом на реальные риски.</p>
+          </article>
+          <article class="track-card">
+            <span class="track-count">5 DB</span>
+            <h3>SQL для тестирования данных</h3>
+            <p>Фильтрация, агрегации, join'ы, дедупликация и поиск проблем в данных, которые любят на техсобесах.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="trainers" id="trainers">
+        <div class="section-heading">
+          <p class="eyebrow">Hands-on lab</p>
+          <h2>Тренажеры для подготовки к собеседованиям</h2>
+        </div>
+
+        <div class="trainer-tabs" role="tablist" aria-label="Выбор тренажера">
+          <button class="tab-button active" data-target="ui" role="tab" aria-selected="true">UI Auto</button>
+          <button class="tab-button" data-target="api" role="tab" aria-selected="false">API Auto</button>
+          <button class="tab-button" data-target="db" role="tab" aria-selected="false">SQL / DB</button>
+        </div>
+
+        <div class="trainer-panels">
+          <article class="trainer-panel active" id="ui" role="tabpanel">
+            <div class="trainer-layout">
+              <div class="challenge-card">
+                <div class="trainer-meta">
+                  <span class="challenge-label">UI Track</span>
+                  <div class="trainer-stats">
+                    <span id="uiTaskCount">0 задач</span>
+                    <span id="uiTrackProgress">0% заполнено</span>
+                  </div>
+                </div>
+                <div class="level-filter" id="uiLevelFilter"></div>
+                <div class="task-list" id="uiTaskList"></div>
+              </div>
+
+              <div class="workspace-card">
+                <div class="workspace-header">
+                  <div>
+                    <p class="workspace-kicker" id="uiTaskLevel">Junior</p>
+                    <h3 id="uiTaskTitle">Загрузка...</h3>
+                  </div>
+                  <button class="button button-secondary next-task-button" data-scope="ui">Следующая задача</button>
+                </div>
+                <p class="workspace-description" id="uiTaskDescription"></p>
+                <ul class="challenge-points" id="uiTaskPoints"></ul>
+                <label class="editor-label" for="uiAnswer">Твое решение</label>
+                <textarea id="uiAnswer" class="code-editor" spellcheck="false"></textarea>
+                <div class="workspace-actions">
+                  <button class="button button-primary evaluate-button" data-scope="ui">Проверить решение</button>
+                  <button class="button button-secondary solution-button" data-scope="ui">Показать пример</button>
+                </div>
+                <div class="feedback" id="uiFeedback"></div>
+                <pre class="solution-box hidden" id="uiSolution"></pre>
+              </div>
+            </div>
+          </article>
+
+          <article class="trainer-panel" id="api" role="tabpanel">
+            <div class="trainer-layout">
+              <div class="challenge-card">
+                <div class="trainer-meta">
+                  <span class="challenge-label">API Track</span>
+                  <div class="trainer-stats">
+                    <span id="apiTaskCount">0 задач</span>
+                    <span id="apiTrackProgress">0% заполнено</span>
+                  </div>
+                </div>
+                <div class="level-filter" id="apiLevelFilter"></div>
+                <div class="task-list" id="apiTaskList"></div>
+              </div>
+
+              <div class="workspace-card">
+                <div class="workspace-header">
+                  <div>
+                    <p class="workspace-kicker" id="apiTaskLevel">Junior</p>
+                    <h3 id="apiTaskTitle">Загрузка...</h3>
+                  </div>
+                  <button class="button button-secondary next-task-button" data-scope="api">Следующая задача</button>
+                </div>
+                <p class="workspace-description" id="apiTaskDescription"></p>
+                <ul class="challenge-points" id="apiTaskPoints"></ul>
+                <label class="editor-label" for="apiAnswer">Твое решение</label>
+                <textarea id="apiAnswer" class="code-editor" spellcheck="false"></textarea>
+                <div class="workspace-actions">
+                  <button class="button button-primary evaluate-button" data-scope="api">Проверить решение</button>
+                  <button class="button button-secondary solution-button" data-scope="api">Показать пример</button>
+                </div>
+                <div class="feedback" id="apiFeedback"></div>
+                <pre class="solution-box hidden" id="apiSolution"></pre>
+              </div>
+            </div>
+          </article>
+
+          <article class="trainer-panel" id="db" role="tabpanel">
+            <div class="trainer-layout">
+              <div class="challenge-card">
+                <div class="trainer-meta">
+                  <span class="challenge-label">DB Track</span>
+                  <div class="trainer-stats">
+                    <span id="dbTaskCount">0 задач</span>
+                    <span id="dbTrackProgress">0% заполнено</span>
+                  </div>
+                </div>
+                <div class="level-filter" id="dbLevelFilter"></div>
+                <div class="task-list" id="dbTaskList"></div>
+              </div>
+
+              <div class="workspace-card">
+                <div class="workspace-header">
+                  <div>
+                    <p class="workspace-kicker" id="dbTaskLevel">Junior</p>
+                    <h3 id="dbTaskTitle">Загрузка...</h3>
+                  </div>
+                  <button class="button button-secondary next-task-button" data-scope="db">Следующая задача</button>
+                </div>
+                <p class="workspace-description" id="dbTaskDescription"></p>
+                <ul class="challenge-points" id="dbTaskPoints"></ul>
+                <label class="editor-label" for="dbAnswer">Твое решение</label>
+                <textarea id="dbAnswer" class="code-editor" spellcheck="false"></textarea>
+                <div class="workspace-actions">
+                  <button class="button button-primary evaluate-button" data-scope="db">Проверить решение</button>
+                  <button class="button button-secondary solution-button" data-scope="db">Показать пример</button>
+                </div>
+                <div class="feedback" id="dbFeedback"></div>
+                <pre class="solution-box hidden" id="dbSolution"></pre>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="interview-section">
+        <div class="section-heading">
+          <p class="eyebrow">Interview tips</p>
+          <h2>Что особенно ценят интервьюеры</h2>
+        </div>
+        <div class="tips-grid">
+          <article class="tip-card">
+            <h3>Структура мысли</h3>
+            <p>Важно не только написать код, но и показать, что ты понимаешь цель теста, риски и критерии надежной проверки.</p>
+          </article>
+          <article class="tip-card">
+            <h3>Негативные сценарии</h3>
+            <p>Сильные кандидаты почти всегда думают о невалидных данных, статусах ошибок и пограничных условиях.</p>
+          </article>
+          <article class="tip-card">
+            <h3>Читаемость и поддерживаемость</h3>
+            <p>Даже короткое тестовое задание выигрывает, если в нем есть понятные названия, ожидания и логичная последовательность шагов.</p>
+          </article>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
